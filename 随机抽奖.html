@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机抽奖</title>
+    <style>
+        .container{
+            background-color: rgb(24, 101, 255);
+            padding: 20px auto;
+            position: relative;
+            border: 6px solid rgb(0, 0, 0);
+            border-radius: 8px;
+            height: 170px;
+            width: 420px;
+            margin: 0px auto;
+            text-align: center;
+        }
+        .panel{
+            width: 300px;
+            height: 100px;
+            margin: 0px auto;
+            text-align:center;
+          
+        }
+        .number{
+            width: 90px;
+            height: 120px;
+            border: 5px solid rgb(28, 187, 255);
+            background-color: rgb(224, 224, 224);
+            float: left;
+            left: 50%;
+            font-size: 6em;
+            text-align: center;
+            vertical-align: top;
+            padding-top: 8px 0px ;
+            margin: 20px;
+        }
+        .control{
+            margin: 20px auto;
+            text-align: center;
+        }
+        .control button{
+            font-size: 1.6em;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .control button:hover{
+            background-color: rgb(250, 46, 0);
+            color: rgb(255, 255, 255);
+        }
+        .clear{
+            clear: both;
+        }
+      
+    </style>
+    <script>
+        window.onload=function(){
+            document.getElementById("btn-action").onclick = function(){
+                var status = this.getAttribute("d-status");
+                if(status == "0"){
+                    this.setAttribute("d-status","1");
+                    this.textContent = "立即结束";
+
+                    lottoStart();
+                }else{
+                    this.setAttribute("d-status","0");
+                    this.textContent = "开始抽奖";
+                    
+                    lottoEnd();
+                }
+            };
+
+        };
+        function lottoStart(){
+            var boxes = document.getElementsByClassName("number");
+            for (var i = 0; i < boxes.length; i++){
+                (function(){
+                    var box = boxes[i];
+                    boxes[i].timer = setInterval(function(){
+                        randomNumber(box);
+                    },100);
+                })();
+            }
+        }
+        function lottoEnd(){
+            var boxes = document.getElementsByClassName("number");
+            for(var i = 0; i < boxes.length; i++){
+                clearInterval(boxes[i].timer);
+            }
+        }
+        function randomNumber(box){
+            var num = Math.floor(Math.random()*10);
+            box.innerText = num;
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align: center">随机抽奖</h2>
+    <div class="container">
+        <div class="pane1" >
+            <p id="num1" class="number">0</p>
+            <p id="num2" class="number">0</p>
+            <p id="num3" class="number">0</p>
+            <div class="clear">
+        </div>
+     </div>
+        <div class="control">
+            <button id ="btn-action" d-status="0">开始抽奖</button>
+        </div>
+</body>
+</html>

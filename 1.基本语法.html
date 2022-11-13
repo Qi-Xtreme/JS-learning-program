@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>基本语法</title>
+    <script>
+      //大小写 数字 下划线 美元 但是不能以数字开头
+      //var _;
+      //var $;
+      //不要随意使用 特殊变量 不要随意在两头用
+      //undefined 定义但未初始化
+      //js不能夸窗口 可以通过globalThis访问
+      //所有函数之外的变量就是全局变量
+      //写在函数里的变量，就是局部变量
+      var a = "global";
+      b = "global";
+
+      function f1() {
+        var a = "local";
+        return a;
+      }
+      function f2() {
+        b = "local";
+        return b;
+      }
+      console.log(a);
+      console.log(f1());
+      console.log(b);
+      console.log(f2());
+      console.log(b);
+      console.log(a);
+    </script>
+  </head>
+  <body>
+    <!--01 行内式（不建议） 使用在页面中 js代码写在html标签里面
+    优点标签属性 直接在html中编写 
+    缺点代码沉余 调试困难 只能用于当前页面 耦合性强不美观 不利于维护-->
+    <!--02 内联式 
+    优缺点借鉴于行内式-->
+    <!--03 外联式 
+    优点 可以被多个页面调用 如果需要修改 只需要修改一处即可
+    减少工作量 维护方便-->
+    <!-- 变量是容器，存储值 -->
+  </body>
+</html>
