@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>回调函数</title>
+  </head>
+  <body>
+    <script>
+      function cal(op) {
+        var numbers = [2, 3, 4, 5, 6, 7, 8, 9, 11];
+        if (typeof op === "function") return op(numbers);
+        else throw new Error("Some Wrong");
+      }
+      function sum(nums) {
+        var r = 0;
+        for (var i = 0; i < nums.length; i++) {
+          r += nums[i];
+        }
+        return r;
+      }
+
+      var result = cal(sum);
+      console.log(result);
+
+      result = cal(function (nums) {
+        var r = nums[0];
+        for (var i = 0; i < nums.length; i++) {
+          if (nums[i] > r) {
+            r = nums[i];
+          }
+        }
+        return r;
+      });
+      console.log(result);
+    </script>
+  </body>
+</html>

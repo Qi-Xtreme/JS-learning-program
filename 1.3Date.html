@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>计算天数</title>
+    <script>
+      window.onload = function () {
+        document.getElementById("btn-ok").onclick = function () {
+          var txt_birth = document.getElementById("birthday").value;
+          var birthday = new Date(txt_birth);
+          var now = new Date();
+          var days = Math.floor((now - birthday) / 1000 / 60 / 60 / 24);
+          document.getElementById("show").textContent =
+            "你已经在地球上" + days + "天";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div>
+      <label for="birthday">生日：</label>
+      <input type="text" name="birthday" id="birthday" />
+      <button id="btn-ok">ENTER</button>
+      <!-- innerText  
+        innerHTML 可以对标签内的单独使用 例如标签<span class=""/> -->
+      <!-- textContent 识别全部字符串 -->
+      <p id="show"></p>
+    </div>
+  </body>
+</html>

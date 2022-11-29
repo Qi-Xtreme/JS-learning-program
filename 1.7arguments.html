@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arguments</title>
+  </head>
+  <body>
+    <!-- <script>
+      //arguments，函数每次调用都拥有独立的arguments对象，用于获取函数当次调用时所有的实参
+      //形参，具有名称，具名参数
+      function add(a, b) {
+        return a + b;
+      }
+      //add();a undefined b undefined r NaN
+      //add(10);a 10 b undefined r NaN
+      //add(10, 20);a 10 b 20 r 30
+      //add(10,,20,60)a 10 b 20 r 30
+    </script> -->
+
+    <script>
+      function add(a, b) {
+        //严格模式use strict
+        console.log(a, b);
+        console.log(...arguments); //...arguments 展开
+        a = 111;
+        console.log(...arguments);
+        arguments[1] = 222; //绑定关系，对应变化一起变化
+        console.log(b);
+      }
+      //add(11, 22, 33, 44);
+
+      function sub(a, b) {
+        var result = NaN;
+        //判断类型
+        if (checkArgsType(arguments, "number")) {
+          var r = arguments[0];
+          for (var i = 1; i < arguments.length; i++) {
+            r = r - arguments[i];
+          }
+          result = r;
+        } else if (checkArgsType(arguments, "string")) {
+          var r = arguments[0];
+          for (var i = 1; i < arguments.length; i++) {
+            r = r - arguments[i].length;
+          }
+          result = r;
+        } else {
+          console.log("无法计算差值");
+          //return NaN;
+          // throw new Error("无法计算参数");
+        }
+        return result;
+      }
+      /* if (typeof a === "number" && typeof b === "number") {
+          return a - b;
+        } else if (typeof a === "string" && typeof b === "string") {
+          return a.length - b.length;
+        } else {
+
+      } */
+
+      function checkArgsType(args, type) {
+        var r = true;
+        for (var i = 0; i < args.length; i++) {
+          if (typeof args[i] != type) {
+            r = false;
+            break;
+          }
+        }
+        return r;
+      }
+
+      function subAll(numbers) {}
+
+      console.log(sub(20, 10, "5", 100));
+      console.log(sub("adasdadaff", "abc", "xy", "m"));
+      console.log(checkArgsType[(1, 2, 3)], "boolean");
+    </script>
+  </body>
+</html>

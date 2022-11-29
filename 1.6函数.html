@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数声明方式</title>
+    <!--  <script>
+      //confirm 确认框 prompt 输入框 alert 提示框
+      //eval
+        //eval("alert('Please enter')"); //Please enter
+      //由js代码产生js代码
+      //声明函数
+      /* function 函数名(参数1,参数2) {
+        函数体;
+        [return 表达式] 可选，用于返回函数值。
+      } */
+      //函数表达式：
+      //var myFunction = function name([param[, param[, ... param]]]) { statements }
+    </script> -->
+  </head>
+  <body>
+    <script>
+      /* console.log(add(12, 11));
+      console.log(sub(20, 10)); */
+      //避免函数里面的名字声明
+      function add(a, b = 0) {
+        //arguments{},对象，冒号前面是属性，后面是属性值  console.log(...arguments) ... 扩展（展开）运算符
+        //b = b === undefined ? 0 : b; //默认值，没有传给 但正常执行需要
+        return a + b;
+      }
+      var sub = function (c, d) {
+        return c - d;
+      };
+      var jia = add;
+      console.log(jia(10, 8), sub(10, 8), typeof sub);
+    </script>
+
+    <script>
+      function square(num) {
+        // var total; //如果在作用于有定义，则在当前作用域寻找，如果没有就去上一级寻找。
+        // 50
+        total = num * num;
+        return total;
+      }
+      // var tt = 50; //400
+      //如果全局也没找到，就在全局声明赋值
+      var number = square(20);
+      console.log("tt=" + total, "number=" + number);
+      //形参类似于变量，实参类似于函数值。
+    </script>
+
+    <script>
+      function f1(car, num) {
+        car.make = "Toyota";
+        num += 10;
+      }
+      var myCar = { make: "Honda", year: 1998 };
+      var n = 20;
+      console.log(myCar.make, n);
+      f1(myCar, n); //n是直接传递的值
+      console.log(myCar.make, n);
+    </script>
+  </body>
+</html>

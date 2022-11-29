@@ -18,11 +18,11 @@
       b = "global";
 
       function f1() {
-        var a = "local";
+        var a = "local"; //函数里声明的变量只作用于当前函数
         return a;
       }
       function f2() {
-        b = "local";
+        b = "local"; //由于全局内没有声明变量b 所以就是用当前赋值 返回给全局，所以b发生改变
         return b;
       }
       console.log(a);

@@ -26,7 +26,7 @@
         position: fixed;
         left: 50%;
         bottom: 10px;
-        color: #ccc;
+        color: rgb(219, 219, 219);
       }
     </style>
   </head>
@@ -252,6 +252,7 @@
           context.beginPath();
           var t = -Math.PI;
           var point = to(t);
+          0;
           context.moveTo(point.x, point.y);
           while (t < Math.PI) {
             t += 0.01; // baby steps!
@@ -260,7 +261,7 @@
           }
           context.closePath();
           // create the fill
-          context.fillStyle = "#9370DB";
+          context.fillStyle = "#FF1CAE"; //#9370DB //修改颜色位置
           context.fill();
           // create the image
           var image = new Image();

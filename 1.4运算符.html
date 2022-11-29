@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //'false'==false //false 因为'false'为字符串其值等于0 所以结果为false
+      var a = 10;
+      var b = --a;
+      var c = a--;
+      console.log(a, b, c);
+
+      var a = 100;
+      var b = a > 100 ? 100 : a;
+      console.log(b); //平时成绩最大为100，用于平时成绩统计
+
+      5 ** 2; //平方
+      9 ** 0.5; //根号
+
+      var c = true; //false取表达式2为结果
+      var d = c || {};
+      console.log(d);
+
+      var cc = undefined;
+      var dd;
+      (dd == cc) == undefined ? {} : cc;
+      console.log(dd);
+    </script>
+  </head>
+  <body></body>
+</html>
